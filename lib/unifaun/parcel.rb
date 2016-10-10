@@ -5,7 +5,7 @@ class Parcel<Base
   attr_accessor :valuePerParcel
   def initialize(args)
     args.each do |k,v|
-      send("#{k}=",v)
+      send("#{k}=",v) rescue p "#{k} dose not exist"
     end
   end
   def to_json

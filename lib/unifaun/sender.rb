@@ -11,7 +11,7 @@ class Sender < Base
   attr_accessor :quickId
   def initialize(args)
     args.each do |k,v|
-      send("#{k}=",v)
+      send("#{k}=",v) rescue p "#{k} dose not exist"
     end
   end
   def to_json

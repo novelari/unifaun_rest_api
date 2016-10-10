@@ -4,11 +4,12 @@ class Receiver<Base
   attr_accessor :zipcode
   attr_accessor :name
   attr_accessor :address1
+  attr_accessor :address2
   attr_accessor :country
   attr_accessor :city
   def initialize(args)
     args.each do |k,v|
-      send("#{k}=",v)
+      send("#{k}=",v) rescue p "#{k} dose not exist"
     end
   end
   def to_json

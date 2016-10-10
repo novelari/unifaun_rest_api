@@ -6,7 +6,7 @@ class Option<Base
   attr_accessor :from
   def initialize(args)
     args.each do |k,v|
-      send("#{k}=",v)
+      send("#{k}=",v) rescue p "#{k} dose not exist"
     end
   end
 end
