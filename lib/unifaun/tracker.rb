@@ -1,4 +1,5 @@
 require 'json'
+require "unifaun/ParcelTracker.rb"
 class Tracker<Base
   attr_accessor :href
   attr_accessor :id
@@ -53,7 +54,11 @@ class Tracker<Base
       tracker.returnShipment = trackerJson['returnShipment']
       tracker.normalShipment = trackerJson['normalShipment']
       tracker.consolidated = trackerJson['consolidated']
-      tracker.parcels = trackerJson['parcels']
+      if trackerJson['parcels']
+        tracker.parcels = trackerJson['parcels'].map do |parcelsJson|
+          ParcelTracker.new(parcelsJson)
+        end
+      end
       tracker.pdfs = trackerJson['pdfs']
       tracker.previousPdfs = trackerJson['previousPdfs']
       tracker

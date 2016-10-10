@@ -7,6 +7,7 @@ require "unifaun/service.rb"
 require "unifaun/option.rb"
 require 'rest-client'
 require "unifaun/tracker.rb"
+require "unifaun/tracker.rb"
 class Shipment < Base
   attr_accessor :sender
   attr_accessor :parcels
