@@ -18,20 +18,20 @@ class Shipment < Base
   attr_accessor :options
   attr_accessor :test
 
-  def setSender(name,phone,email,zipcode,address1,city,country,quickId)
-    @sender = Sender.new(name,phone,email,zipcode,address1,city,country,quickId)
+  def setSender(args)
+    @sender = Sender.new(args)
   end
 
-  def setReciver(name,phone,email,address1,zipcode,city,country)
-    @receiver = Receiver.new(name,phone,email,address1,zipcode,city,country)
+  def setReciver(args)
+    @receiver = Receiver.new(args)
   end
 
   def setService(id)
     @service = Service.new(id)
   end
 
-  def addParcel(copies,weight,contents,valuePerParcel)
-    newParcel = Parcel.new(copies,weight,contents,valuePerParcel)
+  def addParcel(args)
+    newParcel = Parcel.new(args)
     if @parcels
       @parcels << newParcel
     else
@@ -39,8 +39,8 @@ class Shipment < Base
     end
   end
 
-  def addOption(message,to,id,languageCode,from)
-    newOption = Option.new(message,to,id,languageCode,from)
+  def addOption(args)
+    newOption = Option.new(args)
     if @options
       @options << newOption
     else

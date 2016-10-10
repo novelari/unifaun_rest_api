@@ -12,11 +12,11 @@ describe Unifaun do
   it "shipment is working" do
     s  = Shipment.new()
     s.test = true
-    s.setSender("ahmed","+46 31 725 35 00","ahmed@elnaqah.com","41121","Skeppsbron 5-6","GÖTEBORG","SE","1")
-    s.addParcel("1","0.16","important things",true)
-    s.setReciver("Unifaun AB","+46 8 34 35 15","sales@unifaun.com","11359","Tegnérgatan 34","STOCKHOLM","SE")
+    s.setSender({name: "ahmed",phone: "+46 31 725 35 00",email: "ahmed@elnaqah.com",zipcode: "41121",address1: "Skeppsbron 5-6",address2: "test address2",city: "GÖTEBORG",country: "SE",quickId: "1"})
+    s.addParcel(copies: "1",weight:"0.16",contents:"important things",valuePerParcel:true)
+    s.setReciver(name:"Unifaun AB",phone:"+46 8 34 35 15",email:"sales@unifaun.com",address1:"Tegnérgatan 34",zipcode:"11359",city:"STOCKHOLM",country:"SE")
     s.setService("PUA")
-    s.addOption("This is order number 123","sales@unifaun.com","ENOT","SE","info@unifaun.com")
+    s.addOption(message:"This is order number 123",to:"sales@unifaun.com",id:"ENOT",languageCode:"SE",from:"info@unifaun.com")
     s.orderNo = "order number 123"
     s.senderReference = "sender ref 234"
     s.receiverReference = "receiver ref 345"
@@ -28,11 +28,11 @@ describe Unifaun do
   it "shipment is Failed" do
     s  = Shipment.new()
     s.test = true
-    s.setSender("ahmed","+46 31 725 35 00","ahmed@elnaqah.com","41121","Skeppsbron 5-6","GÖTEBORG","SE","1")
-    s.addParcel("1","0.16","important things",true)
-    s.setReciver("Unifaun AB","+46 8 34 35 15","sales@unifaun.com","Tegnérgatan 34","11359","STOCKHOLM","SE")
+    s.setSender({name: "ahmed",phone: "+46 31 725 35 00",email: "ahmed@elnaqah.com",zipcode: "41121",address1: "Skeppsbron 5-6",address2: "test address2",city: "GÖTEBORG",country: "SE",quickId: "1"})
+    s.addParcel(copies: "1",weight:"0.16",contents:"important things",valuePerParcel:true)
+    s.setReciver(name:"Unifaun AB",phone:"+46 8 34 35 15",email:"sales@unifaun.com",zipcode:"Tegnérgatan 34",address1:"11359",city:"STOCKHOLM",country:"SE")
     s.setService("PUA")
-    s.addOption("This is order number 123","sales@unifaun.com","ENOT","SE","info@unifaun.com")
+    s.addOption(message:"This is order number 123",to:"sales@unifaun.com",id:"ENOT",languageCode:"SE",from:"info@unifaun.com")
     s.orderNo = "order number 123"
     s.senderReference = "sender ref 234"
     s.receiverReference = "receiver ref 345"
@@ -44,11 +44,11 @@ describe Unifaun do
   it "shipments creating is working" do
     s  = Shipment.new()
     s.test = true
-    s.setSender("ahmed","+46 31 725 35 00","ahmed@elnaqah.com","41121","Skeppsbron 5-6","GÖTEBORG","SE","1")
-    s.addParcel("1","0.16","important things",true)
-    s.setReciver("Unifaun AB","+46 8 34 35 15","sales@unifaun.com","11359","Tegnérgatan 34","STOCKHOLM","SE")
+    s.setSender({name: "ahmed",phone: "+46 31 725 35 00",email: "ahmed@elnaqah.com",zipcode: "41121",address1: "Skeppsbron 5-6",address2: "test address2",city: "GÖTEBORG",country: "SE",quickId: "1"})
+    s.addParcel(copies: "1",weight:"0.16",contents:"important things",valuePerParcel:true)
+    s.setReciver(name:"Unifaun AB",phone:"+46 8 34 35 15",email:"sales@unifaun.com",address1:"Tegnérgatan 34",zipcode:"11359",city:"STOCKHOLM",country:"SE")
     s.setService("PUA")
-    s.addOption("This is order number 123","sales@unifaun.com","ENOT","SE","info@unifaun.com")
+    s.addOption(message:"This is order number 123",to:"sales@unifaun.com",id:"ENOT",languageCode:"SE",from:"info@unifaun.com")
     s.orderNo = "order number 123"
     s.senderReference = "sender ref 234"
     s.receiverReference = "receiver ref 345"
