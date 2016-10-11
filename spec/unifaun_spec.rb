@@ -24,7 +24,9 @@ describe Unifaun do
     # s.save(pdfConfig)
     tracker = Unifaun.createShipment(s,pdfConfig)
     p tracker
-    p tracker.pdfs[0].href
+    f=File.new("file.pdf", "w")
+    f.write(Unifaun.getShipmentPDF(tracker.pdfs[0].href))
+    f.close
     # p s.to_json
   end
   it "shipment is Failed" do

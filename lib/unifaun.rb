@@ -16,4 +16,9 @@ module Unifaun
       raise "You need to send an array of shipments"
     end
   end
+
+  def self.getShipmentPDF(href)
+    response = RestClient::Request.execute(:url => href, :method => :get, :verify_ssl => false,:headers => {Authorization: "Bearer #{API::KEY}"})
+  end
+
 end

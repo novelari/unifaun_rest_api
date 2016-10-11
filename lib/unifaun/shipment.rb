@@ -61,9 +61,11 @@ class Shipment < Base
       tracker
     rescue Exception => e
       p e.message
-      response = e.response
-      p response.code
-      p JSON.parse(response.body)
+      if e.response
+        response = e.response
+        p response.code
+        p JSON.parse(response.body)
+      end
     end
   end
 
