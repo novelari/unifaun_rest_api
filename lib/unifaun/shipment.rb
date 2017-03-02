@@ -8,6 +8,8 @@ require "unifaun/option.rb"
 require 'rest-client'
 require "unifaun/tracker.rb"
 require "unifaun/tracker.rb"
+require "unifaun/customsDeclaration.rb"
+
 class Shipment < Base
   attr_accessor :sender
   attr_accessor :parcels
@@ -18,6 +20,7 @@ class Shipment < Base
   attr_accessor :receiverReference
   attr_accessor :options
   attr_accessor :test
+  attr_accessor :customsDeclaration
 
   def setSender(args)
     @sender = Sender.new(args)
@@ -27,8 +30,12 @@ class Shipment < Base
     @receiver = Receiver.new(args)
   end
 
-  def setService(id)
-    @service = Service.new(id)
+  def setService(id,paymentMethod = "*NONE*",addons = [])
+    @service = Service.new(id,paymentMethod,addons)
+  end
+
+  def setCustomsDeclaration(args,lines)
+    @customsDeclaration = CustomsDeclaration.new(args,lines)
   end
 
   def addParcel(args)
