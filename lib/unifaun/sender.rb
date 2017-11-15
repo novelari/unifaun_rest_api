@@ -9,6 +9,7 @@ class Sender < Base
   attr_accessor :country
   attr_accessor :city
   attr_accessor :quickId
+  attr_accessor :orgNo
   def initialize(args)
     args.each do |k,v|
       send("#{k}=",v) rescue p "#{k} dose not exist"
