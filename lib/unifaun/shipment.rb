@@ -36,7 +36,7 @@ class Shipment < Base
     @senderPartners = args.map{|s| SenderPartners.new(s)}
   end
 
-  def setService(id,paymentMethod = "*NONE*",addons = [])
+  def setService(id,paymentMethod=nil,addons = [])
     @service = Service.new(id,paymentMethod,addons)
   end
 
