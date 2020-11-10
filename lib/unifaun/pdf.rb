@@ -1,4 +1,4 @@
-class PDF
+class UnifaunPDF
   attr_accessor :href
   attr_accessor :id
   attr_accessor :description
