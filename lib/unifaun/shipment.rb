@@ -1,6 +1,7 @@
 require 'unifaun/base.rb'
 require 'json'
 require "unifaun/sender.rb"
+require "unifaun/senderPartner.rb"
 require "unifaun/parcel.rb"
 require "unifaun/receiver.rb"
 require "unifaun/service.rb"
@@ -12,6 +13,7 @@ require "unifaun/customsDeclaration.rb"
 
 class Shipment < Base
   attr_accessor :sender
+  attr_accessor :senderPartners
   attr_accessor :parcels
   attr_accessor :orderNo
   attr_accessor :receiver
@@ -30,12 +32,16 @@ class Shipment < Base
     @receiver = Receiver.new(args)
   end
 
-  def setService(id,paymentMethod = "*NONE*",addons = [])
+  def setSenderPartners(args)
+    @senderPartners = args.map{|s| SenderPartners.new(s)}
+  end
+
+  def setService(id,paymentMethod=nil,addons = [])
     @service = Service.new(id,paymentMethod,addons)
   end
 
-  def setCustomsDeclaration(args,lines)
-    @customsDeclaration = CustomsDeclaration.new(args,lines)
+  def setCustomsDeclaration(args,lines,sender)
+    @customsDeclaration = CustomsDeclaration.new(args,lines,sender)
   end
 
   def addParcel(args)

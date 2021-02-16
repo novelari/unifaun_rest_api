@@ -62,7 +62,7 @@ class Tracker<Base
       end
       if trackerJson['pdfs']
         tracker.pdfs = trackerJson['pdfs'].map do |pdfJson|
-          PDF.new(pdfJson)
+          UnifaunPDF.new(pdfJson)
         end
       end
       tracker.previousPdfs = trackerJson['previousPdfs']
